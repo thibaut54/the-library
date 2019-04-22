@@ -1,0 +1,116 @@
+entity Library {
+	name String
+}
+
+entity Book {
+	title String,
+    language String,
+    isbn Integer,
+    publicationDate LocalDate,
+    numberOfPages Integer
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Category {
+	category String
+}
+
+entity Author {
+	firstName String,
+	lastName String,
+	nationality String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Coordinates {
+	street String,
+	streetNumber String, 
+	additionalInformation String, 
+	city String, 
+	postalCode Integer, 
+	phone Integer, 
+	email String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Editor {
+	/**
+	* The firstname attribute.
+	*/
+	name String
+}
+
+entity Loan {
+	startDate LocalDate,
+	returned Boolean,
+	initialEndDate LocalDate, 
+	extendedEndDate LocalDate
+}
+
+entity Role {
+	role String
+}
+
+entity Users {
+	password String, 
+	firstName String,
+	lastName String,
+	userName String,
+	registrationDate LocalDate
+}
+
+
+relationship ManyToMany {
+	Book{author} to Author{book}
+}
+relationship ManyToMany {
+	Book{category} to Category{book}
+}
+relationship ManyToMany {
+	Book{library} to Library{book}
+}
+
+relationship ManyToMany {
+	Users{role} to Role{users}
+}
+
+relationship OneToMany {
+	Book{loan} to Loan{book}
+}
+relationship OneToMany {
+	Editor{book} to Book{editor}
+}
+relationship OneToMany {
+	Users{loan} to Loan{users}
+}
+
+relationship OneToOne {
+	Coordinates{users} to Users{coordinates}
+}
+relationship OneToOne {
+	Coordinates{library} to Library{coordinates}
+}
+relationship OneToOne {
+	Coordinates{editor} to Editor{coordinates}
+}
+
+
+
+// Set pagination options
+// paginate JobHistory, Employee with infinite-scroll
+// paginate Job with pagination
+
+//Use Data Transfert Objects (DTO)
+//dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

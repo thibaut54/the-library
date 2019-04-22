@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-book-heading" jhiTranslate="theLibraryApp.book.home.createOrEditLabel">Create or edit a Book</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!book.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="book.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.book.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="book.title" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.book.language" for="field_language">Language</label>
+                    <input type="text" class="form-control" name="language" id="field_language"
+                        [(ngModel)]="book.language" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.book.isbn" for="field_isbn">Isbn</label>
+                    <input type="number" class="form-control" name="isbn" id="field_isbn"
+                        [(ngModel)]="book.isbn" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.book.publicationDate" for="field_publicationDate">Publication Date</label>
+                    <div class="input-group">
+                        <input id="field_publicationDate" type="text" class="form-control" name="publicationDate" ngbDatepicker  #publicationDateDp="ngbDatepicker" [(ngModel)]="book.publicationDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="publicationDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.book.numberOfPages" for="field_numberOfPages">Number Of Pages</label>
+                    <input type="number" class="form-control" name="numberOfPages" id="field_numberOfPages"
+                        [(ngModel)]="book.numberOfPages" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="theLibraryApp.book.author" for="field_author">Author</label>
+                    <select class="form-control" id="field_author" multiple name="author" [(ngModel)]="book.authors">
+                        <option [ngValue]="getSelected(book.authors, authorOption)" *ngFor="let authorOption of authors; trackBy: trackAuthorById">{{authorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="theLibraryApp.book.category" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" multiple name="category" [(ngModel)]="book.categories">
+                        <option [ngValue]="getSelected(book.categories, categoryOption)" *ngFor="let categoryOption of categories; trackBy: trackCategoryById">{{categoryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="theLibraryApp.book.library" for="field_library">Library</label>
+                    <select class="form-control" id="field_library" multiple name="library" [(ngModel)]="book.libraries">
+                        <option [ngValue]="getSelected(book.libraries, libraryOption)" *ngFor="let libraryOption of libraries; trackBy: trackLibraryById">{{libraryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.book.editor" for="field_editor">Editor</label>
+                    <select class="form-control" id="field_editor" name="editor" [(ngModel)]="book.editor" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="editorOption.id === book.editor?.id ? book.editor : editorOption" *ngFor="let editorOption of editors; trackBy: trackEditorById">{{editorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

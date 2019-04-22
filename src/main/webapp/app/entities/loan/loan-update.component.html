@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-loan-heading" jhiTranslate="theLibraryApp.loan.home.createOrEditLabel">Create or edit a Loan</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!loan.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="loan.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.loan.startDate" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" [(ngModel)]="loan.startDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.loan.returned" for="field_returned">Returned</label>
+                    <input type="checkbox" class="form-control" name="returned" id="field_returned"
+                        [(ngModel)]="loan.returned" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.loan.initialEndDate" for="field_initialEndDate">Initial End Date</label>
+                    <div class="input-group">
+                        <input id="field_initialEndDate" type="text" class="form-control" name="initialEndDate" ngbDatepicker  #initialEndDateDp="ngbDatepicker" [(ngModel)]="loan.initialEndDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="initialEndDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.loan.extendedEndDate" for="field_extendedEndDate">Extended End Date</label>
+                    <div class="input-group">
+                        <input id="field_extendedEndDate" type="text" class="form-control" name="extendedEndDate" ngbDatepicker  #extendedEndDateDp="ngbDatepicker" [(ngModel)]="loan.extendedEndDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="extendedEndDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.loan.book" for="field_book">Book</label>
+                    <select class="form-control" id="field_book" name="book" [(ngModel)]="loan.book" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bookOption.id === loan.book?.id ? loan.book : bookOption" *ngFor="let bookOption of books; trackBy: trackBookById">{{bookOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.loan.users" for="field_users">Users</label>
+                    <select class="form-control" id="field_users" name="users" [(ngModel)]="loan.users" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="usersOption.id === loan.users?.id ? loan.users : usersOption" *ngFor="let usersOption of users; trackBy: trackUsersById">{{usersOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

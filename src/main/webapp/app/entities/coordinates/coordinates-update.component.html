@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-coordinates-heading" jhiTranslate="theLibraryApp.coordinates.home.createOrEditLabel">Create or edit a Coordinates</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!coordinates.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="coordinates.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.street" for="field_street">Street</label>
+                    <input type="text" class="form-control" name="street" id="field_street"
+                        [(ngModel)]="coordinates.street" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.streetNumber" for="field_streetNumber">Street Number</label>
+                    <input type="text" class="form-control" name="streetNumber" id="field_streetNumber"
+                        [(ngModel)]="coordinates.streetNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.additionalInformation" for="field_additionalInformation">Additional Information</label>
+                    <input type="text" class="form-control" name="additionalInformation" id="field_additionalInformation"
+                        [(ngModel)]="coordinates.additionalInformation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                        [(ngModel)]="coordinates.city" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.postalCode" for="field_postalCode">Postal Code</label>
+                    <input type="number" class="form-control" name="postalCode" id="field_postalCode"
+                        [(ngModel)]="coordinates.postalCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.phone" for="field_phone">Phone</label>
+                    <input type="number" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="coordinates.phone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="coordinates.email" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.users" for="field_users">Users</label>
+                    <select class="form-control" id="field_users" name="users" [(ngModel)]="coordinates.users">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="usersOption.id === coordinates.users?.id ? coordinates.users : usersOption" *ngFor="let usersOption of users; trackBy: trackUsersById">{{usersOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.library" for="field_library">Library</label>
+                    <select class="form-control" id="field_library" name="library" [(ngModel)]="coordinates.library">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="libraryOption.id === coordinates.library?.id ? coordinates.library : libraryOption" *ngFor="let libraryOption of libraries; trackBy: trackLibraryById">{{libraryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="theLibraryApp.coordinates.editor" for="field_editor">Editor</label>
+                    <select class="form-control" id="field_editor" name="editor" [(ngModel)]="coordinates.editor">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="editorOption.id === coordinates.editor?.id ? coordinates.editor : editorOption" *ngFor="let editorOption of editors; trackBy: trackEditorById">{{editorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

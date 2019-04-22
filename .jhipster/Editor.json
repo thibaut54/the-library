@@ -1,0 +1,35 @@
+{
+    "name": "Editor",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "book",
+            "otherEntityRelationshipName": "editor",
+            "relationshipName": "book"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "coordinates",
+            "otherEntityRelationshipName": "editor",
+            "relationshipName": "coordinates",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190422152545",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "editor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

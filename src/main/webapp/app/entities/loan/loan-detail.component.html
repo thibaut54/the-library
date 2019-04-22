@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="loan">
+            <h2><span jhiTranslate="theLibraryApp.loan.detail.title">Loan</span> {{loan.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="theLibraryApp.loan.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{loan.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.loan.returned">Returned</span></dt>
+                <dd>
+                    <span>{{loan.returned}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.loan.initialEndDate">Initial End Date</span></dt>
+                <dd>
+                    <span>{{loan.initialEndDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.loan.extendedEndDate">Extended End Date</span></dt>
+                <dd>
+                    <span>{{loan.extendedEndDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.loan.book">Book</span></dt>
+                <dd>
+                    <div *ngIf="loan.book">
+                        <a [routerLink]="['/book', loan.book?.id, 'view']">{{loan.book?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.loan.users">Users</span></dt>
+                <dd>
+                    <div *ngIf="loan.users">
+                        <a [routerLink]="['/users', loan.users?.id, 'view']">{{loan.users?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/loan', loan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{
+    "theLibraryApp": {
+        "coordinates": {
+            "home": {
+                "title": "Coordinates",
+                "createLabel": "Créer un nouveau Coordinates",
+                "createOrEditLabel": "Créer ou éditer un Coordinates",
+                "search": "Recherche pour Coordinates"
+            },
+            "created": "Un nouveau Coordinates a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Coordinates avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Coordinates avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Coordinates {{ id }} ?"
+            },
+            "detail": {
+                "title": "Coordinates"
+            },
+            "street": "Street",
+            "streetNumber": "Street Number",
+            "additionalInformation": "Additional Information",
+            "city": "City",
+            "postalCode": "Postal Code",
+            "phone": "Phone",
+            "email": "Email",
+            "users": "Users",
+            "library": "Library",
+            "editor": "Editor"
+        }
+    }
+}
