@@ -1,0 +1,24 @@
+{
+    "theLibraryApp": {
+        "library": {
+            "home": {
+                "title": "Libraries",
+                "createLabel": "Create a new Library",
+                "createOrEditLabel": "Create or edit a Library",
+                "search": "Search for Library"
+            },
+            "created": "A new Library is created with identifier {{ param }}",
+            "updated": "A Library is updated with identifier {{ param }}",
+            "deleted": "A Library is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Library {{ id }}?"
+            },
+            "detail": {
+                "title": "Library"
+            },
+            "name": "Name",
+            "coordinates": "Coordinates",
+            "book": "Book"
+        }
+    }
+}

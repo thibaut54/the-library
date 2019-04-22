@@ -1,0 +1,27 @@
+{
+    "theLibraryApp": {
+        "editor": {
+            "home": {
+                "title": "Editors",
+                "createLabel": "Create a new Editor",
+                "createOrEditLabel": "Create or edit a Editor",
+                "search": "Search for Editor"
+            },
+            "created": "A new Editor is created with identifier {{ param }}",
+            "updated": "A Editor is updated with identifier {{ param }}",
+            "deleted": "A Editor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Editor {{ id }}?"
+            },
+            "detail": {
+                "title": "Editor"
+            },
+            "name": "Name",
+            "book": "Book",
+            "coordinates": "Coordinates",
+            "help": {
+                "name": "The firstname attribute."
+            }
+        }
+    }
+}

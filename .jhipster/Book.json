@@ -1,0 +1,73 @@
+{
+    "name": "Book",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "language",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isbn",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "publicationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numberOfPages",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "loan",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "loan"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "author",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "author",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "category",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "library",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "library",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "editor",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "editor",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190422152541",
+    "entityTableName": "book",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

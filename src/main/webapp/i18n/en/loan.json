@@ -1,0 +1,27 @@
+{
+    "theLibraryApp": {
+        "loan": {
+            "home": {
+                "title": "Loans",
+                "createLabel": "Create a new Loan",
+                "createOrEditLabel": "Create or edit a Loan",
+                "search": "Search for Loan"
+            },
+            "created": "A new Loan is created with identifier {{ param }}",
+            "updated": "A Loan is updated with identifier {{ param }}",
+            "deleted": "A Loan is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Loan {{ id }}?"
+            },
+            "detail": {
+                "title": "Loan"
+            },
+            "startDate": "Start Date",
+            "returned": "Returned",
+            "initialEndDate": "Initial End Date",
+            "extendedEndDate": "Extended End Date",
+            "book": "Book",
+            "users": "Users"
+        }
+    }
+}

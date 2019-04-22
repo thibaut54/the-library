@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="theLibraryApp.users.home.title">Users</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-users" [routerLink]="['/users/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="theLibraryApp.users.home.createLabel">
+            Create new Users
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'theLibraryApp.users.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="users">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="theLibraryApp.users.password">Password</span></th>
+            <th><span jhiTranslate="theLibraryApp.users.firstName">First Name</span></th>
+            <th><span jhiTranslate="theLibraryApp.users.lastName">Last Name</span></th>
+            <th><span jhiTranslate="theLibraryApp.users.userName">User Name</span></th>
+            <th><span jhiTranslate="theLibraryApp.users.registrationDate">Registration Date</span></th>
+            <th><span jhiTranslate="theLibraryApp.users.role">Role</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let users of users ;trackBy: trackId">
+                <td><a [routerLink]="['/users', users.id, 'view' ]">{{users.id}}</a></td>
+                <td>{{users.password}}</td>
+                <td>{{users.firstName}}</td>
+                <td>{{users.lastName}}</td>
+                <td>{{users.userName}}</td>
+                <td>{{users.registrationDate | date:'mediumDate'}}</td>
+                <td>
+                    <span *ngFor="let role of users.roles; let last = last">
+                            <a class="form-control-static" [routerLink]="['../role', role?.id, 'view' ]">{{role.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/users', users.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/users', users.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'users', { outlets: { popup: users.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

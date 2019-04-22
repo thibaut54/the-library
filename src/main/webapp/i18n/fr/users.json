@@ -1,0 +1,29 @@
+{
+    "theLibraryApp": {
+        "users": {
+            "home": {
+                "title": "Users",
+                "createLabel": "Créer un nouveau Users",
+                "createOrEditLabel": "Créer ou éditer un Users",
+                "search": "Recherche pour Users"
+            },
+            "created": "Un nouveau Users a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Users avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Users avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Users {{ id }} ?"
+            },
+            "detail": {
+                "title": "Users"
+            },
+            "password": "Password",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "userName": "User Name",
+            "registrationDate": "Registration Date",
+            "loan": "Loan",
+            "role": "Role",
+            "coordinates": "Coordinates"
+        }
+    }
+}

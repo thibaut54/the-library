@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="book">
+            <h2><span jhiTranslate="theLibraryApp.book.detail.title">Book</span> {{book.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="theLibraryApp.book.title">Title</span></dt>
+                <dd>
+                    <span>{{book.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.language">Language</span></dt>
+                <dd>
+                    <span>{{book.language}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.isbn">Isbn</span></dt>
+                <dd>
+                    <span>{{book.isbn}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.publicationDate">Publication Date</span></dt>
+                <dd>
+                    <span>{{book.publicationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.numberOfPages">Number Of Pages</span></dt>
+                <dd>
+                    <span>{{book.numberOfPages}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.author">Author</span></dt>
+                <dd>
+                    <span *ngFor="let author of book.authors; let last = last">
+                        <a [routerLink]="['/author', author?.id, 'view' ]">{{author.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.category">Category</span></dt>
+                <dd>
+                    <span *ngFor="let category of book.categories; let last = last">
+                        <a [routerLink]="['/category', category?.id, 'view' ]">{{category.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.library">Library</span></dt>
+                <dd>
+                    <span *ngFor="let library of book.libraries; let last = last">
+                        <a [routerLink]="['/library', library?.id, 'view' ]">{{library.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.book.editor">Editor</span></dt>
+                <dd>
+                    <div *ngIf="book.editor">
+                        <a [routerLink]="['/editor', book.editor?.id, 'view']">{{book.editor?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/book', book.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

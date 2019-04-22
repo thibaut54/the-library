@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="coordinates">
+            <h2><span jhiTranslate="theLibraryApp.coordinates.detail.title">Coordinates</span> {{coordinates.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="theLibraryApp.coordinates.street">Street</span></dt>
+                <dd>
+                    <span>{{coordinates.street}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.streetNumber">Street Number</span></dt>
+                <dd>
+                    <span>{{coordinates.streetNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.additionalInformation">Additional Information</span></dt>
+                <dd>
+                    <span>{{coordinates.additionalInformation}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.city">City</span></dt>
+                <dd>
+                    <span>{{coordinates.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{coordinates.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.phone">Phone</span></dt>
+                <dd>
+                    <span>{{coordinates.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.email">Email</span></dt>
+                <dd>
+                    <span>{{coordinates.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.users">Users</span></dt>
+                <dd>
+                    <div *ngIf="coordinates.users">
+                        <a [routerLink]="['/users', coordinates.users?.id, 'view']">{{coordinates.users?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.library">Library</span></dt>
+                <dd>
+                    <div *ngIf="coordinates.library">
+                        <a [routerLink]="['/library', coordinates.library?.id, 'view']">{{coordinates.library?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="theLibraryApp.coordinates.editor">Editor</span></dt>
+                <dd>
+                    <div *ngIf="coordinates.editor">
+                        <a [routerLink]="['/editor', coordinates.editor?.id, 'view']">{{coordinates.editor?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/coordinates', coordinates.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

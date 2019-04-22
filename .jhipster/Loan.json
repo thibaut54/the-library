@@ -1,0 +1,46 @@
+{
+    "name": "Loan",
+    "fields": [
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "returned",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "initialEndDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "extendedEndDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "book",
+            "otherEntityRelationshipName": "loan",
+            "relationshipName": "book",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "users",
+            "otherEntityRelationshipName": "loan",
+            "relationshipName": "users",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190422152546",
+    "entityTableName": "loan",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
