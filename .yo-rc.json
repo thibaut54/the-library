@@ -1,0 +1,38 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "org.jhipster.thibaut.thelibrary",
+            "nativeLanguage": "en"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "gateway",
+        "baseName": "TheLibrary",
+        "packageName": "org.jhipster.thibaut.thelibrary",
+        "packageFolder": "org/jhipster/thibaut/thelibrary",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "hazelcast",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "postgresql",
+        "searchEngine": "elasticsearch",
+        "messageBroker": false,
+        "serviceDiscoveryType": "eureka",
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NmMxNWQyYWIxZWE1ODg2MDM1ZDlhZWVlM2JjZjUzNTg2MzQ3ZTk5MTkwYjdmNGI3NmUxOTA4ZmY2ZTc3MDAxOGM3Y2MzNWU0ZmVmNzFkNmFhMjdmNjRkMjE4MzQxZjdhYjFkY2ZlMmM5NTg4YTU1Y2EyNGNjMWI0Mjk5Y2ViODM=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": ["cucumber"],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "en",
+        "languages": ["en", "fr"]
+    }
+}
